@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-//look into minimumSize for QWidget
+
 //QGridLayout::addWidget(widget, row, column, alignment
 //create a single widget and paint all the particles
 //setsize of the window
@@ -37,6 +37,6 @@ int main(int argc, char *argv[])
     QObject::connect(button, SIGNAL(clicked()), &p_window, SLOT(make()));
     QObject::connect(button, SIGNAL(clicked()), &p_window, SLOT(columnnumbers()));
 
-
+    
     return a.exec();
 }

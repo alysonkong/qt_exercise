@@ -2,20 +2,53 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QApplication>
+#include <QSpinBox>
+#include <QPushButton>
+//#include <QGridLayout>
+#include <QHBoxLayout>
+#include <QPaintEvent>
+#include <QPainter>
+#include <QLabel>
+#include <QWidget>
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
-{
+
+class particles : public QWidget{
     Q_OBJECT
-
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    particles();
+   //
+   //virtual ~particles() {};
+
+public slots:
+    void make();
+    void setc(int value);
+    void setr(int value);
+    void columnnumbers();
 
 private:
-    Ui::MainWindow *ui;
+    int row;
+    int column;
+    QLabel *text;
+    QGridLayout *layout;
+
+ protected:
+    void closeEvent(QCloseEvent* e) override;
+
 };
+
+class oneparticle : public QWidget{
+      Q_OBJECT
+ public:
+    oneparticle();
+    QSize minimumSizeHint() const override;
+
+ public slots:
+    void paintEvent(QPaintEvent *) override;
+
+
+
+};
+
 #endif // MAINWINDOW_H
